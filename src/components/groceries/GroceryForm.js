@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class GroceryForm extends React.Component {
-  state = { item: '', price: '' }
+class GroceryForm extends Component {
+  state = { name: '', price: '' }
 
   handleChange = (e) => {
-    const { item, price, value } = e.target
-    this.setState({ [item]: value })
+    const { name, price, value } = e.target
+    this.setState({ [name]: value })
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addItem(this.state.item, this.state.price)
-    this.setState({ item: '', price: ''})
+    this.props.addItem(this.state.name, this.state.price)
+    this.setState({ name: '', price: ''})
   }
 
   render() {
@@ -20,8 +20,8 @@ class GroceryForm extends React.Component {
 
       <form onSubmit={this.handleSubmit}>
         <input 
-          value={this.state.item}
-          item="item"
+          value={this.state.name}
+          name="name"
           onChange={this.handleChange}
           required 
           placeholder="Add An Item" 

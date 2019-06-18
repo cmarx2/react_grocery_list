@@ -5,9 +5,9 @@ import GroceryForm from './components/groceries/GroceryForm';
 class App extends Component {
   state = {
     groceries: [
-      { id: 1, item: "Apples", price: "$1.00", complete: true, },
-      { id: 2, item: "Chicken", price: "$5.00", complete: false, },
-      { id: 3, item: "Broccoli", price: "$3.00", complete: false, },
+      { id: 1, name: "Apples", price: "$1.00", complete: true, },
+      { id: 2, name: "Chicken", price: "$5.00", complete: false, },
+      { id: 3, name: "Broccoli", price: "$3.00", complete: false, },
     ]
   };
 
@@ -33,28 +33,28 @@ class App extends Component {
   }
 
   addItem = (name, price) => {
-    const { groceries } = this.state;
-    const grocery = { id: this.getUniqId(), item, price, complete: false }
-    this.setState({ groceries: [grocery, ...groceries]});
+    const { items } = this.state;
+    const newItem = { id: this.getUniqId(), name, price, complete: false }
+    this.setState({ items: [newItem, ...items]});
   }
 
-  renderGroceries = () => {
-    const { groceries, } = this .state;
-    return groceries.map( grocery => {
-      return (
-        <li key={grocery.id}>{grocery.item}: {grocery.price}</li>
-      )
-    })
-  };
+  // renderGroceries = () => {
+  //   const { groceries, } = this .state;
+  //   return groceries.map( grocery => {
+  //     return (
+  //       <li key={grocery.id}>{grocery.item}: {grocery.price}</li>
+  //     )
+  //   })
+  // };
   
   render() {
-    const { groceries } = this.state;
+    const { items } = this.state;
     return (
       <div>
-      <GroceryForm />
-      <List name="Grocery List" groceries={ groceries } handleClick={this.handleClick}/>
+      <GroceryForm addItem={this.addItem} />
+      <List name="Grocery List" items={ items } handleClick={this.handleClick}/>
       </div>
-    );
+    )
   }
 }
 
