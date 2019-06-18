@@ -4,7 +4,7 @@ import GroceryForm from './components/groceries/GroceryForm';
 
 class App extends Component {
   state = {
-    groceries: [
+    items: [
       { id: 1, name: "Apples", price: "$1.00", complete: true, },
       { id: 2, name: "Chicken", price: "$5.00", complete: false, },
       { id: 3, name: "Broccoli", price: "$3.00", complete: false, },

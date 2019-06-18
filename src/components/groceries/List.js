@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './components/groceries/Item';
+import Item from './Item';
 
 const List = ({ name, items, handleClick }) => (
   <div>

@@ -29,11 +29,13 @@ class GroceryForm extends Component {
           <br />
            <input 
           value={this.state.price}
-          price="price"
+          name="price"
           onChange={this.handleChange}
           required 
           placeholder="Add Price" 
           />
+          <br />
+          <input type = "submit" value = "Submit" />
       </form>
     )
   }
